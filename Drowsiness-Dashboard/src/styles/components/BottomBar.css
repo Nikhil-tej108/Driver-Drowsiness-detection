@@ -1,0 +1,78 @@
+.bottom-bar {
+  height: 60px;
+  border-top: 1px solid rgba(195, 166, 255, 0.1);
+  background: linear-gradient(180deg,
+    rgba(195, 166, 255, 0) 0%,
+    rgba(195, 166, 255, 0.05) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success-green);
+  box-shadow: 0 0 10px var(--success-green);
+  animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-text {
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.session-time {
+  letter-spacing: 0.5px;
+}
+
+.ai-model {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--light-purple);
+  font-weight: 500;
+}
+
+.ai-model svg {
+  filter: drop-shadow(0 0 6px var(--light-purple));
+}
+
+@media (max-width: 768px) {
+  .bottom-bar {
+    height: 50px;
+    padding: 0 20px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .session-time {
+    flex: 1;
+    text-align: center;
+  }
+}
