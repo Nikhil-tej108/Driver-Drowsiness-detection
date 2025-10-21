@@ -1,0 +1,91 @@
+.camera-feed-wrapper {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.camera-feed {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(195, 166, 255, 0.4);
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    rgba(115, 66, 157, 0.2) 0%,
+    rgba(195, 166, 255, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 40px rgba(195, 166, 255, 0.3),
+    inset 0 0 30px rgba(195, 166, 255, 0.1);
+}
+
+.camera-placeholder {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center,
+    rgba(100, 50, 150, 0.3) 0%,
+    rgba(50, 20, 100, 0.5) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.camera-icon {
+  color: rgba(195, 166, 255, 0.5);
+  animation: cameraGlow 3s ease-in-out infinite;
+}
+
+@keyframes cameraGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(195, 166, 255, 0.3));
+    opacity: 0.6;
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(195, 166, 255, 0.6));
+    opacity: 1;
+  }
+}
+
+.camera-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(195, 166, 255, 0.1) 0%,
+    transparent 70%);
+  animation: glowExpand 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowExpand {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .camera-feed-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .camera-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
