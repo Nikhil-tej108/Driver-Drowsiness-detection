@@ -1,12 +1,38 @@
 .top-bar {
-  height: 70px;
-  border-bottom: 1px solid rgba(195, 166, 255, 0.1);
+  height: 80px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
   display: flex;
   align-items: center;
   padding: 0 40px;
   background: linear-gradient(180deg, 
-    rgba(195, 166, 255, 0.08) 0%,
-    rgba(195, 166, 255, 0) 100%);
+    rgba(139, 92, 246, 0.06) 0%,
+    rgba(139, 92, 246, 0.02) 50%,
+    transparent 100%);
+  position: relative;
+}
+
+/* Subtle top bar glow */
+.top-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.5) 50%,
+    transparent 100%);
+  animation: topBarShimmer 3s ease-in-out infinite;
+}
+
+@keyframes topBarShimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .title-section {
@@ -17,36 +43,39 @@
 
 .title-icon {
   color: var(--light-purple);
-  filter: drop-shadow(0 0 10px var(--light-purple));
-  animation: iconGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px var(--glow-purple-intense));
+  animation: iconGlow 4s ease-in-out infinite;
 }
 
 @keyframes iconGlow {
   0%, 100% {
-    filter: drop-shadow(0 0 10px var(--light-purple));
+    filter: drop-shadow(0 0 12px var(--glow-purple));
+    opacity: 0.9;
   }
   50% {
-    filter: drop-shadow(0 0 20px var(--light-purple));
+    filter: drop-shadow(0 0 20px var(--glow-purple-intense));
+    opacity: 1;
   }
 }
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  letter-spacing: 2px;
-  color: #fff;
-  text-shadow: 0 0 20px rgba(195, 166, 255, 0.4);
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
   .top-bar {
-    height: 50px;
+    height: 60px;
     padding: 0 20px;
   }
 
   .title {
-    font-size: 14px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 2px;
   }
 
   .title-icon {
