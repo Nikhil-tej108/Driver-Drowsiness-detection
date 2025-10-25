@@ -1,0 +1,166 @@
+.camera-feed-wrapper {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.camera-feed {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    rgba(109, 40, 217, 0.15) 0%,
+    rgba(91, 33, 182, 0.25) 50%,
+    rgba(15, 10, 30, 0.4) 100%);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 60px rgba(139, 92, 246, 0.25),
+    0 0 100px rgba(109, 40, 217, 0.15),
+    inset 0 0 80px rgba(139, 92, 246, 0.08);
+  animation: cameraFeedPulse 4s ease-in-out infinite;
+}
+
+@keyframes cameraFeedPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 60px rgba(139, 92, 246, 0.25),
+      0 0 100px rgba(109, 40, 217, 0.15),
+      inset 0 0 80px rgba(139, 92, 246, 0.08);
+  }
+  50% {
+    box-shadow: 
+      0 0 80px rgba(139, 92, 246, 0.35),
+      0 0 120px rgba(109, 40, 217, 0.2),
+      inset 0 0 100px rgba(139, 92, 246, 0.12);
+  }
+}
+
+.camera-placeholder {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(109, 40, 217, 0.3) 30%,
+    rgba(91, 33, 182, 0.4) 60%,
+    rgba(15, 10, 30, 0.6) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Rotating border effect */
+/* .camera-placeholder::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(139, 92, 246, 0.4) 90deg,
+    transparent 180deg,
+    rgba(167, 139, 250, 0.4) 270deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  animation: rotateBorder 6s linear infinite;
+  filter: blur(10px);
+  opacity: 0.6;
+} */
+
+/* @keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.camera-icon {
+  color: rgba(196, 181, 253, 0.6);
+  animation: cameraGlow 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+}
+
+/* @keyframes cameraGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4));
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.7));
+    opacity: 1;
+    transform: scale(1.05);
+  }
+} */
+
+/* Multiple expanding glow rings */
+/* .camera-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.08) 30%,
+    transparent 70%);
+  animation: glowExpand 3s ease-out infinite;
+  pointer-events: none;
+} */
+
+/* Secondary glow ring */
+/* .camera-glow::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    transparent 0%,
+    rgba(139, 92, 246, 0.1) 40%,
+    transparent 70%);
+  animation: glowExpand 3s ease-out 0.5s infinite; */
+/* }
+
+@keyframes glowExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .camera-feed-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .camera-icon {
+    width: 36px;
+    height: 36px;
+  }
+} */

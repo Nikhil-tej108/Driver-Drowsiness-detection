@@ -1,0 +1,28 @@
+.metrics-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 200px;
+}
+
+.metrics-column.left {
+  align-items: flex-start;
+}
+
+.metrics-column.right {
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .metrics-column {
+    flex-direction: row;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .metrics-column.left,
+  .metrics-column.right {
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}

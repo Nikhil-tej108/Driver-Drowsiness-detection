@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import TopBar from './components/TopBar';
+import ContentArea from './components/ContentArea';
+import BottomBar from './components/BottomBar';
+import './styles/global.css';
+import './styles/App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [metrics, setMetrics] = useState({
+    alertStatus: 'ALERT',
+    microSleepTime: '0:07s',
+    yawnDuration: '1.2s',
+    blinkCount: 35,
+    sessionTime: '12:45'
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMetrics(prev => ({
+        ...prev,
+        blinkCount: Math.min(prev.blinkCount + 1, 100)
+      }));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="detector-container">
+      <div className="background-gradient"></div>
+      <div className="detector-panel">
+        <TopBar />
+        <ContentArea metrics={metrics} />
+        <BottomBar metrics={metrics} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
